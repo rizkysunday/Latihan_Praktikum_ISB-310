@@ -1,59 +1,75 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Cibaduyut Shoes – Sistem Manajemen Sepatu
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Deskripsi Project
 
-## About Laravel
+Cibaduyut Shoes merupakan aplikasi web sederhana yang menampilkan katalog sepatu dengan informasi produk seperti gambar, nama sepatu, harga, dan stok.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Website ini dibuat sebagai tugas praktikum mata kuliah **Sistem Informasi Berbasis Web (ISB-310)** untuk mempelajari dasar pengembangan aplikasi web menggunakan HTML, CSS, Bootstrap, dan JavaScript.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Fitur Sistem
 
-## Learning Laravel
+### 1. Menampilkan Produk
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+Website menampilkan daftar sepatu dalam bentuk kartu (card) yang berisi:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* Gambar produk
+* Nama sepatu
+* Harga
+* Stok sepatu
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2. Fitur Pembelian
 
-### Premium Partners
+Pengguna dapat membeli sepatu dengan menekan tombol **Beli**.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Fungsi yang terjadi:
 
-## Contributing
+* Stok sepatu akan berkurang secara otomatis
+* Jika stok tersedia maka pembelian berhasil
+* Jika stok habis maka sistem akan menampilkan pesan **Stok Habis**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+### 3. Fitur Wishlist
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Pengguna dapat menambahkan produk ke **Wishlist**.
 
-## Security Vulnerabilities
+Fitur ini menggunakan **Local Storage** pada browser sehingga:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* Produk yang ditambahkan ke wishlist akan tersimpan di browser
+* Jumlah wishlist akan muncul pada navbar
+* Wishlist dapat dilihat melalui modal popup
+* Produk dapat dihapus dari wishlist
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 4. Dark Mode
+
+Website memiliki fitur **Mode Gelap (Dark Mode)**.
+
+Fungsi dari fitur ini:
+
+* Mengubah tampilan website menjadi gelap
+* Mode yang dipilih akan tersimpan di **Local Storage**
+* Saat halaman dibuka kembali, mode sebelumnya tetap aktif
+
+---
+
+Penjelasan:
+
+* **index.html** → Halaman utama website
+* **script.js** → Berisi fungsi JavaScript (pembelian, wishlist, dark mode)
+* **style.css** → Styling tambahan untuk tampilan website
+* **images** → Folder gambar produk sepatu
+
+---
+---
+
+## Author
+
+Rizky Sunday
+Praktikum Sistem Informasi Berbasis Web
+Week 3
