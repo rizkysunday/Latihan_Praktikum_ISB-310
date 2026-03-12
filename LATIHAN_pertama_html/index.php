@@ -1,0 +1,210 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistem Manajemen Sepatu</title>
+
+    <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- CSS Custom -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">CIBADUYUT SHOES</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <button class="btn btn-outline-warning btn-sm me-2" data-bs-toggle="modal" data-bs-target="#wishlistModal" onclick="tampilkanWishlist()">
+                    ⭐ Wishlist (<span id="wishlist-count">0</span>)
+                </button>
+
+                <button id="btn-theme" class="btn btn-outline-light btn-sm">
+                    Mode Gelap
+                </button>
+            </div>
+        </div>
+
+        <div class="ms-3">
+        <?php if (isset($_SESSION["user"])): ?>
+    
+            <span class="me-2 text-dark">
+                 Halo, <strong><?php echo $_SESSION["user"]; ?></strong>
+            </span>
+    
+            <a href="controller/logout.php" class="btn btn-danger btn-sm">
+                Logout
+            </a>
+
+        <?php else: ?>
+
+            <a href="login.php" class="btn btn-warning btn-sm">
+                Login
+            </a>
+
+        <?php endif; ?>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+     <div class="hero-section text-center text-white d-flex align-items-center justify-content-center">
+        <div class="container">
+            <h1 class="display-4">Sistem Manajemen Sepatu</h1>
+            <p class="lead">Kelola stok, kategori, dan data sepatu dengan mudah.</p>
+        </div>
+     </div>
+        
+
+     <!--dashboard -->
+        <div class="container mt-5">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h5>Stok tersedia</h5>
+                                <h2>85</h2>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-md-4">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h5>Kategori</h5>
+                                <h2>3</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card dashboard-card">
+                        <div class="card-body">
+                            <h5>Total Produk</h5>
+                                <h2>12</h2>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    <!-- Daftar Sepatu -->
+     <div class="container mt-5">
+        <h2 class="mb-4">Daftar Sepatu</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb=4">
+                    <img src="assets/assets/NIKE_P_6000.jpg" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">Nike P-6000</h5>
+                        <p class="card-text">Harga: Rp 1.429.000</p>
+                        <p class="card-text stok-text">Stok: 10</p>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-primary btn-detail w-50 me-2">Beli</button>
+                            <button class="btn btn-outline-danger btn-wishlist w-50">❤️ Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb=4">
+                    <img src="assets/assets/AIR_FORCE_1.jpg" class="card-i mg-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">Nike Air Force 1</h5>
+                        <p class="card-text">Harga: Rp 1.499.000</p>
+                        <p class="card-text stok-text">Stok: 7</p>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-primary btn-detail w-50 me-2">Beli</button>
+                            <button class="btn btn-outline-danger btn-wishlist w-50">❤️ Wishlist</button>
+                        </div>
+                    </div>
+                </div>          
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb=4">
+                    <img src="assets/assets/AIR_JORDAN_1_LOW.jpg" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">Nike Air Jordan 1 Low</h5>
+                        <p class="card-text">Harga: Rp 1.899.000</p>
+                        <p class="card-text stok-text">Stok: 10</p>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-primary btn-detail w-50 me-2">Beli</button>
+                            <button class="btn btn-outline-danger btn-wishlist w-50">❤️ Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+
+     <!-- form Tambah Sepatu-->
+      <div class="container mt-5">
+        <h2 class="mb-4">Tambah Sepatu Baru</h2>
+        <form>
+            <div class="mb-3">
+                <label for="namaSepatu" class="form-label">Nama Sepatu</label>
+                <input type="text" class="form-control" id="namaSepatu" placeholder="Masukkan nama sepatu">
+            </div>
+
+            <div class="mb-3">
+                <label for="hargaSepatu" class="form-label">Harga Sepatu</label>
+                <input type="number" class="form-control" id="hargaSepatu" placeholder="Masukkan harga sepatu">
+            </div>
+
+            <div class="mb-3">
+                <label for="stokSepatu" class="form-label">Stok Sepatu</label>
+                <input type="number" class="form-control" id="stokSepatu" placeholder="Masukkan stok sepatu">
+            </div>
+
+            <div class="mb-3">
+                <label for="kategoriSepatu" class="form-label">Kategori Sepatu</label>
+                <select class="form-select">
+                    <option value="Casual">Casual</option>
+                    <option value="Running">Running</option>
+                    <option value="Basketball">Basketball</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success">Simpan</button>
+        </form>
+     </div>
+
+    <!-- Footer -->
+     <footer class="bg-light text-center py-3 mt-5">
+        <p>&copy; Sistem Manajemen Sepatu.</p>
+     </footer>
+
+     <!-- Bootstrap JS -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+     <!--Modal Wishlist-->
+     <div class="modal fade" id="wishlistModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Daftar Wishlist Saya</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group" id="daftar-wishlist">
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-danger" onclick="hapusWishlist()">Kosongkan</button>
+                </div>
+            </div>
+        </div>
+     </div>
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="JS/script.js"></script>
+
+    </body>
+</html>
