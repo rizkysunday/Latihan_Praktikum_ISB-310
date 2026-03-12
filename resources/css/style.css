@@ -1,0 +1,47 @@
+body {
+font-family: Arial, sans-serif;
+background: #f8f9fa;
+transition: 0.3s;
+}
+
+/* HERO */
+
+.hero {
+height: 400px;
+background-image:
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url("images/background.jpg");
+
+/* CARD */
+
+.card-body {
+display: flex;
+flex-direction: column;
+}
+
+/* FOOTER */
+
+footer {
+margin-top: 40px;
+}
+
+/* DARK MODE */
+
+body.dark-mode {
+background: #121212;
+color: white;
+}
+
+body.dark-mode .card {
+background: #2c2c2c;
+color: white;
+}
+
+body.dark-mode .navbar {
+background: #000 !important;
+}
+
+body.dark-mode .text-muted {
+color: #bbb !important;
+}
+}
